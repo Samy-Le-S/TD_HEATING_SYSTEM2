@@ -1,0 +1,14 @@
+FROM python:alpine
+
+WORKDIR /app
+
+
+RUN apk add --no-cache bash
+RUN pip install pymongo
+
+
+COPY models.py .
+COPY heating.py .
+
+# On garde le conteneur allumé indéfiniment pour que tu puisses y entrer avec "docker exec"
+CMD ["tail", "-f", "/dev/null"]
