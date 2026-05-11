@@ -45,3 +45,10 @@ class Installation:
                 return False
                 
         return True
+    
+
+class Zone:
+    def __init__(self, nom: str, surface_m2: float, equipement_associe: Equipement):
+        self.nom = nom
+        self.surface_m2 = surface_m2
+        self.equipement_associe = equipement_associe
