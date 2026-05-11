@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017" # Le service mongod utilise le port 27017
+
+  seed_mongo:
+    image: samy213/seed_mongo
+    depends_on:
+      - mongodb
+
+  heating:
+    build:
+      context: .
+      dockerfile: Dockerfile.heating
+    depends_on:
+      - seed_mongo
