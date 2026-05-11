@@ -18,3 +18,30 @@ def is_valid(self) -> bool:
             return False
             
         return True 
+
+class Installation:
+    def __init__(self, surface_m2: float, equipements: list[Equipement], zones: list[Zone]):
+        self.surface_m2 = surface_m2 # [cite: 22]
+        self.equipements = equipements # [cite: 22]
+        self.zones = zones # [cite: 22]
+
+    def is_valid(self) -> bool:
+
+        if self.surface_m2 % 10 != 0 or self.surface_m2 >= 300:
+            return False
+            
+
+        somme_surfaces_zones = sum(zone.surface_m2 for zone in self.zones)
+        if somme_surfaces_zones != self.surface_m2:
+            return False
+            
+
+        if any(zone.surface_m2 <= 0 for zone in self.zones):
+            return False
+            
+
+        for zone in self.zones:
+            if zone.equipement_associe not in self.equipements:
+                return False
+                
+        return True
