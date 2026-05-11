@@ -21,9 +21,9 @@ def is_valid(self) -> bool:
 
 class Installation:
     def __init__(self, surface_m2: float, equipements: list[Equipement], zones: list[Zone]):
-        self.surface_m2 = surface_m2 # [cite: 22]
-        self.equipements = equipements # [cite: 22]
-        self.zones = zones # [cite: 22]
+        self.surface_m2 = surface_m2 
+        self.equipements = equipements 
+        self.zones = zones
 
     def is_valid(self) -> bool:
 
